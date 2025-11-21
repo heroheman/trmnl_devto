@@ -25,21 +25,23 @@
         {% if show_description and description %}
           <span class="description" data-clamp="{{ description_clamp }}">{{ description }}</span>
         {% endif %}
-        <div class="flex {{ meta_gap }}">
+        <div class="flex gap--medium">
           {% if show_author %}
-            <span class="label {{ label_size }}">{{ author | truncate: author_truncate }}</span>
+            <span class="label label--gray {{ label_size }}">{{ author | truncate: author_truncate }}</span>
           {% endif %}
           {% if show_publish_date and publish_date %}
-            <span class="label {{ label_size }}">{{ publish_date }}</span>
+            <span class="label label--gray {{ label_size }}">{{ publish_date }}</span>
           {% endif %}
           {% if show_tags and tags %}
+            <span class="tags">
             {% assign tags_array = tags | split: ', ' %}
             {% for tag in tags_array limit: max_tags %}
-              <span class="label {{ label_size }}">#{{ tag }}</span>
+              <span class="label label--gray {{ label_size }}">#{{ tag }}</span>
             {% endfor %}
+            </span>
           {% endif %}
           {% if show_reading_time %}
-            <span class="label {{ label_size }}">{{ reading_time }} min</span>
+            <span class="label label--gray {{ label_size }}">{{ reading_time }} min</span>
           {% endif %}
         </div>
       </div>
