@@ -66,8 +66,14 @@
     <span class="title">DEV.TO</span>
     <span class="instance">
       {% if tag and tag != '' %}#{{ tag }}{% endif %}
-      {% if tag and tag != '' and state and state != '' %} • {% endif %}
-      {% if state and state != '' %}{{ state }}{% endif %}
+      {% if tag and tag != '' and state and state != '' and state != 'top' %} • {% endif %}
+      {% if state == 'top' %}
+        {% if tag and tag != '' %} • {% endif %}
+        Top
+        {% if top_label and top_label != '' %} • {{ top_label }}{% endif %}
+      {% elsif state and state != '' %}
+        {{ state | capitalize }}
+      {% endif %}
       {% unless tag and tag != '' or state and state != '' %}Articles{% endunless %}
     </span>
   </div>

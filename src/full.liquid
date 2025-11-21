@@ -29,4 +29,20 @@
   </div>
 </div>
 
-{% render 'devto_footer', tag: trmnl.plugin_settings.custom_fields_values.tag, state: trmnl.plugin_settings.custom_fields_values.state %}
+{% assign top_days = trmnl.plugin_settings.custom_fields_values.top %}
+{% case top_days %}
+  {% when '1' %}
+    {% assign top_label = 'Today' %}
+  {% when '7' %}
+    {% assign top_label = 'Last 7 Days' %}
+  {% when '30' %}
+    {% assign top_label = 'Last 30 Days' %}
+  {% when '180' %}
+    {% assign top_label = 'Last 6 Months' %}
+  {% when '365' %}
+    {% assign top_label = 'Last Year' %}
+  {% when '9999' %}
+    {% assign top_label = 'All Time' %}
+{% endcase %}
+
+{% render 'devto_footer', tag: trmnl.plugin_settings.custom_fields_values.tag, state: trmnl.plugin_settings.custom_fields_values.state, top_label: top_label %}

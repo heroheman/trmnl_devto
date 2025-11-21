@@ -9,7 +9,7 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
-polling_url: 'https://dev.to/api/articles?tag={{ tag }}&state={{ state }}&top={{ top }}'
+polling_url: 'https://dev.to/api/articles?{% if tag and tag != "" %}tag={{ tag }}&{% endif %}{% if state == "top" %}top={{ top }}{% else %}state={{ state }}{% endif %}'
 polling_headers: ''
 name: Dev.to Articles
 refresh_interval: 360
@@ -21,23 +21,52 @@ settings:
     required: false
   - name: state
     type: select
-    label: 'State'
-    description: 'Filter by article state'
+    label: 'Filter'
+    description: 'Filter by article state or popularity'
     required: false
     options:
-      - label: 'All'
-        value: 'all'
       - label: 'Fresh'
         value: 'fresh'
       - label: 'Rising'
         value: 'rising'
+      - label: 'All'
+        value: 'all'
+      - label: 'Top (Most Popular)'
+        value: 'top'
+    default: fresh
+    conditional_validation:
+      - when: top
+        hidden:
+          - state_hidden
+      - when: fresh
+        hidden:
+          - top
+      - when: rising
+        hidden:
+          - top
+      - when: all
+        hidden:
+          - top
   - name: top
-    type: number
-    label: 'Top (days)'
-    description: 'Show most popular articles from the last N days (1-365)'
+    type: select
+    label: 'Time Period'
+    description: 'Show most popular articles from selected time period'
     required: false
-    min: 1
-    max: 365
+    optional: true
+    options:
+      - label: 'Today'
+        value: '1'
+      - label: 'Last 7 Days'
+        value: '7'
+      - label: 'Last 30 Days'
+        value: '30'
+      - label: 'Last 6 Months'
+        value: '180'
+      - label: 'Last Year'
+        value: '365'
+      - label: 'All Time'
+        value: '9999'
+    default: '7'
   - name: show_thumbnail
     type: boolean
     label: 'Show Thumbnails'
