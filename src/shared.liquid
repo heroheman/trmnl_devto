@@ -1,5 +1,13 @@
 <!-- Dev.to Plugin Shared Templates -->
 
+<style>
+  .thumb-image { 
+    object-fit: cover; 
+    width: 100%; 
+    height: 100%;
+  }
+</style>
+
 {% comment %} === ARTICLE ITEM TEMPLATE === {% endcomment %}
 {% template article_item %}
   {% assign image_available = cover_image and cover_image != '' %}
@@ -9,7 +17,7 @@
     <div class="flex flex--row flex--top">
       {% if show_image and image_available %}
         <div class="h--12 aspect--4/3">
-          <img class="w--20 h--auto image image-dither" src="{{ cover_image }}">
+          <img class="thumb-image image-dither" src="{{ cover_image }}">
         </div>
       {% endif %}
       <div class="content w--auto">

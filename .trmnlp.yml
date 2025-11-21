@@ -8,7 +8,7 @@ watch:
 
 # values of custom fields (defined in src/settings.yml)
 custom_fields:
-  tag: "vue"
+  tag: "typescript"
   state: "fresh"
   top: 7
   show_thumbnail: true
