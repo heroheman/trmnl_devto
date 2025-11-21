@@ -11,6 +11,7 @@ custom_fields:
   tag: "javascript"
   state: "fresh"
   top: 7
+  show_thumbnail: true
 
 # Time zone IANA identifier to inject into trmnl.user
 # See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -19,9 +20,5 @@ time_zone: Europe/Berlin
 # override variables for local development
 variables:
   trmnl:
-    user:
-      name: Dev User
-      first_name: Dev
-      last_name: User
     plugin_settings:
       instance_name: Dev.to Articles

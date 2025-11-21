@@ -38,3 +38,9 @@ settings:
     required: false
     min: 1
     max: 365
+  - name: show_thumbnail
+    type: boolean
+    label: 'Show Thumbnails'
+    description: 'Display article cover images as thumbnails'
+    required: false
+    default: false
