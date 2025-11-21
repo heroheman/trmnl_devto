@@ -9,7 +9,7 @@ watch:
 # values of custom fields (defined in src/settings.yml)
 custom_fields:
   tag: "typescript"
-  state: "fresh"
+  state: "all" # fresh rising all
   top: 7
   show_thumbnail: true
 

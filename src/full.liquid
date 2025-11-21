@@ -1,14 +1,4 @@
 <div class="layout layout--col gap">
-  {% render 'devto_header',
-    title_size: 'title--medium',
-    label_size: 'label--small',
-    gap: 'gap--small',
-    show_articles_text: true,
-    tag: trmnl.plugin_settings.custom_fields_values.tag
-  %}
-  
-  <div class="divider"></div>
-  
   <div class="columns" data-overflow-max-cols="1">
     <div class="column">
       {% for article in data %}
@@ -24,7 +14,7 @@
       author: article.user.name,
       author_truncate: 25,
       tags: article.tags,
-      max_tags: 3,
+      max_tags: 5,
       reading_time: article.reading_time_minutes,
       label_size: 'label--small',
       meta_gap: 'gap--small',
