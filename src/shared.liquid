@@ -29,6 +29,9 @@
           {% if show_author %}
             <span class="label {{ label_size }}">{{ author | truncate: author_truncate }}</span>
           {% endif %}
+          {% if show_publish_date and publish_date %}
+            <span class="label {{ label_size }}">{{ publish_date }}</span>
+          {% endif %}
           {% if show_tags and tags %}
             {% assign tags_array = tags | split: ', ' %}
             {% for tag in tags_array limit: max_tags %}
