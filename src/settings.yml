@@ -1,67 +1,65 @@
-#
-# Changes to this file will be overwritten by `trmnlp pull`.
-#
-# Docs: https://help.usetrmnl.com/en/articles/10542599-importing-and-exporting-private-plugins#h_581fb988f0
-#
 ---
 strategy: polling
 no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
-polling_url: 'https://dev.to/api/articles?{% if tag and tag != "" %}tag={{ tag }}&{% endif %}{% if state == "top" %}top={{ top }}{% else %}state={{ state }}{% endif %}'
+polling_url: https://dev.to/api/articles?{% if tag and tag != "" %}tag={{ tag }}&{% endif %}{% if state == "top" %}top={{ top }}{% else %}state={{ state }}{% endif %}
 polling_headers: ''
-name: Dev.to Articles
+polling_body: 
+id: 184240
 custom_fields:
-  - keyname: author_bio
-    name: About This Plugin
-    field_type: author_bio
-    description: v0.0.2 - 20251121 - A Dev.to articles plugin, displaying popular and trending articles from dev.to with customizable filters and layouts.
-    github_url: https://github.com/heroheman/trmnl_devto
-    email_address: moin@flore.nz
-  - keyname: tag
-    field_type: string
-    name: 'Tag'
-    description: 'Filter articles by tag (e.g., javascript, python)'
-    optional: true
-  - keyname: state
-    field_type: select
-    name: 'Filter'
-    description: 'Filter by article state or popularity'
-    options:
-      - 'Fresh': fresh
-      - 'Rising': rising
-      - 'All': all
-      - 'Top (Most Popular)': top
-    default: fresh
-    conditional_validation:
-      - when: fresh
-        hidden:
-          - top
-      - when: rising
-        hidden:
-          - top
-      - when: all
-        hidden:
-          - top
-  - keyname: top
-    field_type: select
-    name: 'Time Period'
-    description: 'Show most popular articles from selected time period'
-    optional: true
-    options:
-      - 'Today': '1'
-      - 'Last 7 Days': '7'
-      - 'Last 30 Days': '30'
-      - 'Last 6 Months': '180'
-      - 'Last Year': '365'
-      - 'All Time': '9999'
-    default: '7'
-  - keyname: show_thumbnail
-    field_type: select
-    name: 'Show Thumbnails'
-    description: 'Display article cover images as thumbnails'
-    options:
-      - 'Yes': 'true'
-      - 'No': 'false'
-    default: 'true'
+- keyname: author_bio
+  name: About This Plugin
+  field_type: author_bio
+  description: v0.0.2 - 20251121 - A Dev.to articles plugin, displaying popular and trending articles from dev.to with customizable filters and layouts.
+  github_url: https://github.com/heroheman/trmnl_devto
+  email_address: moin@flore.nz
+- keyname: tag
+  field_type: string
+  name: Tag
+  description: Filter articles by tag (e.g., javascript, python)
+  optional: true
+- keyname: state
+  field_type: select
+  name: Filter
+  description: Filter by article state or popularity
+  options:
+  - Fresh: fresh
+  - Rising: rising
+  - All: all
+  - Top (Most Popular): top
+  default: fresh
+  conditional_validation:
+  - when: fresh
+    hidden:
+    - top
+  - when: rising
+    hidden:
+    - top
+  - when: all
+    hidden:
+    - top
+- keyname: top
+  field_type: select
+  name: Time Period
+  description: Show most popular articles from selected time period
+  optional: true
+  options:
+  - Today: '1'
+  - Last 7 Days: '7'
+  - Last 30 Days: '30'
+  - Last 6 Months: '180'
+  - Last Year: '365'
+  - All Time: '9999'
+  default: '7'
+- keyname: show_thumbnail
+  field_type: select
+  name: Show Thumbnails
+  description: Display article cover images as thumbnails
+  options:
+  - 'Yes': 'true'
+  - 'No': 'false'
+  default: 'true'
+name: Dev.to Articles
+refresh_interval: 
