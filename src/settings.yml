@@ -16,7 +16,7 @@ custom_fields:
   - keyname: author_bio
     name: About This Plugin
     field_type: author_bio
-    description: v0.0.1 - 20251121 - A Dev.to articles plugin, displaying popular and trending articles from dev.to with customizable filters and layouts.
+    description: v0.0.2 - 20251121 - A Dev.to articles plugin, displaying popular and trending articles from dev.to with customizable filters and layouts.
     github_url: https://github.com/heroheman/trmnl_devto
     email_address: moin@flore.nz
   - keyname: tag

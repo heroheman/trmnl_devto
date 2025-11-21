@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.2] - 2025-11-21
+
+### 🚀 Features
+
+- *(docs)* Update README and CHANGELOG for clarity
+- *(settings)* Update custom fields for article filtering
+
+### 🚜 Refactor
+
+- *(settings)* Remove refresh_interval and update structure
+
 ## [0.0.1] - 2025-11-21
 
 ### 🚀 Features
