@@ -8,7 +8,7 @@ watch:
 
 # values of custom fields (defined in src/settings.yml)
 custom_fields:
-  tag: "javascript"
+  tag: "vue"
   state: "fresh"
   top: 7
   show_thumbnail: true
@@ -18,7 +18,12 @@ custom_fields:
 time_zone: Europe/Berlin
 
 # override variables for local development
-variables:
-  trmnl:
-    plugin_settings:
-      instance_name: Dev.to Articles
+# variables:
+#   trmnl:
+#     plugin_settings:
+#       instance_name: Dev.to Articles
+#       custom_fields_values:
+#         tag: "python"
+#         state: "rising"
+#         top: 30
+#         show_thumbnail: true
