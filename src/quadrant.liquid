@@ -1,27 +1,29 @@
-{% assign articles = data | limit: 2 %}
-
-<div class="layout layout--col gap--tiny">
+<div class="layout layout--col gap">
   <span class="title title--tiny">DEV.TO</span>
   
   <div class="divider"></div>
   
-  {% for article in articles %}
-    {% render 'article_item',
-      title: article.title,
-      title_size: 'title--tiny',
-      title_clamp: '1',
-      show_description: false,
-      cover_image: article.cover_image,
-      show_image: false,
-      tags: article.tags,
-      max_tags: 1,
-      label_size: 'label--tiny',
-      meta_gap: 'gap--tiny',
-      show_author: false,
-      show_tags: true,
-      show_reading_time: false
-    %}
-  {% endfor %}
+  <div class="columns" data-overflow-max-cols="1">
+    <div class="column">
+      {% for article in data %}
+        {% render 'article_item',
+          title: article.title,
+          title_size: 'title--tiny',
+          title_clamp: '1',
+          show_description: false,
+          cover_image: article.cover_image,
+          show_image: false,
+          tags: article.tags,
+          max_tags: 1,
+          label_size: 'label--tiny',
+          meta_gap: 'gap--tiny',
+          show_author: false,
+          show_tags: true,
+          show_reading_time: false
+        %}
+      {% endfor %}
+    </div>
+  </div>
 </div>
 
 {% render 'devto_footer', tag: trmnl.plugin_settings.custom_fields_values.tag, state: trmnl.plugin_settings.custom_fields_values.state %}
