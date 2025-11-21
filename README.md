@@ -1,95 +1,111 @@
 # TRMNL Dev.to Plugin
 
-Ein TRMNL Plugin, das aktuelle Artikel von [dev.to](https://dev.to) anzeigt.
+A TRMNL plugin that displays current articles from [dev.to](https://dev.to).
 
 ## Features
 
-- Zeigt beliebte Artikel von dev.to an
-- Filterung nach Tags (z.B. javascript, python, webdev)
-- Filterung nach Status (all, fresh, rising)
-- Anzeige der beliebtesten Artikel der letzten N Tage
-- Unterstützt alle TRMNL Layouts (Full, Half Horizontal, Half Vertical, Quadrant)
+- Displays popular articles from dev.to
+- Filter by tags (e.g., javascript, python, webdev)
+- Filter by state (all, fresh, rising, top)
+- Show most popular articles from different time periods
+- Supports all TRMNL layouts (Full, Half Horizontal, Half Vertical, Quadrant)
 
 ## Settings
 
 ### Tag (Optional)
-Filtert Artikel nach einem bestimmten Tag. Beispiele:
+Filter articles by a specific tag. Examples:
 - `javascript`
 - `python`
 - `webdev`
 - `tutorial`
 
-### State (Optional)
-Filtert Artikel nach ihrem Status:
-- **All**: Alle Artikel (Standard)
-- **Fresh**: Neue, frische Artikel
-- **Rising**: Aufstrebende Artikel
+### Filter (Optional)
+Filter articles by state or popularity:
+- **Fresh**: New, fresh articles (default)
+- **Rising**: Trending articles
+- **All**: All articles
+- **Top (Most Popular)**: Most popular articles from a selected time period
 
-### Top (Optional)
-Zeigt die beliebtesten Artikel der letzten N Tage an (1-365 Tage).
-Kann mit dem `tag` Parameter kombiniert werden.
+### Time Period (Conditional)
+Only visible when "Top (Most Popular)" is selected as filter. Choose from:
+- **Today**: Most popular articles from today
+- **Last 7 Days**: Most popular articles from the last week
+- **Last 30 Days**: Most popular articles from the last month
+- **Last 6 Months**: Most popular articles from the last 6 months
+- **Last Year**: Most popular articles from the last year
+- **All Time**: Most popular articles of all time
 
-Beispiel: `7` zeigt die beliebtesten Artikel der letzten Woche an.
+Can be combined with the `tag` parameter.
 
-## API Informationen
+### Show Thumbnails (Optional)
+Display article cover images as thumbnails. Only applies to Full and Half Horizontal layouts.
 
-Das Plugin nutzt die offizielle [Forem/Dev.to API v1](https://developers.forem.com/api/v1):
+## API Information
+
+The plugin uses the official [Forem/Dev.to API v1](https://developers.forem.com/api/v1):
 - **Endpoint**: `GET https://dev.to/api/articles`
-- **Keine API-Key erforderlich** für öffentliche Artikel
-- **Rate Limiting**: Beachte die API Rate Limits
+- **No API key required** for public articles
+- **Rate Limiting**: Please respect API rate limits
 
-## Query Parameter
+## Query Parameters
 
-Die Settings werden automatisch als Query-Parameter an die API übergeben:
-- `tag={dein-tag}` - Filtert nach Tag
-- `state={fresh|rising|all}` - Filtert nach Status
-- `top={anzahl-tage}` - Top Artikel der letzten N Tage
+Settings are automatically passed as query parameters to the API:
+- `tag={your-tag}` - Filter by tag
+- `state={fresh|rising|all}` - Filter by state
+- `top={number-of-days}` - Top articles from the last N days
 
-## Angezeigte Informationen
+## Displayed Information
 
-Für jeden Artikel wird angezeigt:
-- **Titel**: Der vollständige Artikeltitel
-- **Autor**: Name des Autors
-- **Reactions**: Anzahl der Reactions (Likes, etc.)
-- **Kommentare**: Anzahl der Kommentare
-- **Lesezeit**: Geschätzte Lesezeit in Minuten
-- **Beschreibung**: Kurze Zusammenfassung des Artikels
+For each article, the following is displayed:
+- **Title**: The full article title
+- **Author**: Author name (Full layout only)
+- **Published Date**: Human-readable publication date
+- **Tags**: Article tags
+- **Reading Time**: Estimated reading time in minutes (Full layout only)
+- **Description**: Short summary of the article (when available)
+- **Thumbnail**: Cover image (Full and Half Horizontal layouts when enabled)
 
-## Layout-Anpassungen
+## Layout Adaptations
 
-Das Plugin passt sich automatisch an verschiedene TRMNL Layouts an:
-- **Full**: Zeigt bis zu 5 Artikel mit vollständigen Details
-- **Half Horizontal**: Zeigt 3 Artikel kompakt
-- **Half Vertical**: Zeigt 4 Artikel vertikal
-- **Quadrant**: Zeigt 2 Artikel sehr kompakt
+The plugin automatically adapts to different TRMNL layouts:
+- **Full**: Shows multiple articles with full details and optional thumbnails
+- **Half Horizontal**: Shows articles with optional thumbnails
+- **Half Vertical**: Shows articles without thumbnails
+- **Quadrant**: Shows articles in compact view without thumbnails
 
-## Entwicklung
+## Development
 
-### Lokaler Test
+### Local Testing
 ```bash
 ./bin/trmnlp preview
 ```
 
-### Plugin hochladen
+### Upload Plugin
 ```bash
 ./bin/trmnlp push
 ```
 
-## Beispiel Konfigurationen
+## Example Configurations
 
-### Top JavaScript Artikel der letzten Woche
+### Top JavaScript Articles from Last Week
 - Tag: `javascript`
-- Top: `7`
+- Filter: `Top (Most Popular)`
+- Time Period: `Last 7 Days`
 
-### Frische Python Tutorials
+### Fresh Python Tutorials
 - Tag: `python`
-- State: `fresh`
+- Filter: `Fresh`
 
-### Allgemeine aufstrebende Artikel
-- State: `rising`
+### Trending Articles
+- Filter: `Rising`
+
+### All Time Most Popular TypeScript Content
+- Tag: `typescript`
+- Filter: `Top (Most Popular)`
+- Time Period: `All Time`
 
 ## Links
 
 - [Dev.to](https://dev.to)
-- [Dev.to API Dokumentation](https://developers.forem.com/api/v1)
-- [TRMNL Dokumentation](https://usetrmnl.com)
+- [Dev.to API Documentation](https://developers.forem.com/api/v1)
+- [TRMNL Documentation](https://usetrmnl.com)
