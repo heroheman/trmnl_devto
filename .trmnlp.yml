@@ -8,9 +8,10 @@ watch:
 
 # values of custom fields (defined in src/settings.yml)
 custom_fields:
+  tag: "typescript"
   state: "top" #top fresh rising all
-  top: 7
-  show_thumbnail: true
+  top: "7"
+  show_thumbnail: "true"
 
 # Time zone IANA identifier to inject into trmnl.user
 # See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones

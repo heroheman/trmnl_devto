@@ -19,30 +19,22 @@ custom_fields:
     description: v0.0.1 - 20251121 - A Dev.to articles plugin, displaying popular and trending articles from dev.to with customizable filters and layouts.
     github_url: https://github.com/heroheman/trmnl_devto
     email_address: moin@flore.nz
-  - name: tag
-    type: text
-    label: 'Tag'
+  - keyname: tag
+    field_type: string
+    name: 'Tag'
     description: 'Filter articles by tag (e.g., javascript, python)'
-    required: false
-  - name: state
-    type: select
-    label: 'Filter'
+    optional: true
+  - keyname: state
+    field_type: select
+    name: 'Filter'
     description: 'Filter by article state or popularity'
-    required: false
     options:
-      - label: 'Fresh'
-        value: 'fresh'
-      - label: 'Rising'
-        value: 'rising'
-      - label: 'All'
-        value: 'all'
-      - label: 'Top (Most Popular)'
-        value: 'top'
+      - 'Fresh': fresh
+      - 'Rising': rising
+      - 'All': all
+      - 'Top (Most Popular)': top
     default: fresh
     conditional_validation:
-      - when: top
-        hidden:
-          - state_hidden
       - when: fresh
         hidden:
           - top
@@ -52,29 +44,24 @@ custom_fields:
       - when: all
         hidden:
           - top
-  - name: top
-    type: select
-    label: 'Time Period'
+  - keyname: top
+    field_type: select
+    name: 'Time Period'
     description: 'Show most popular articles from selected time period'
-    required: false
     optional: true
     options:
-      - label: 'Today'
-        value: '1'
-      - label: 'Last 7 Days'
-        value: '7'
-      - label: 'Last 30 Days'
-        value: '30'
-      - label: 'Last 6 Months'
-        value: '180'
-      - label: 'Last Year'
-        value: '365'
-      - label: 'All Time'
-        value: '9999'
+      - 'Today': '1'
+      - 'Last 7 Days': '7'
+      - 'Last 30 Days': '30'
+      - 'Last 6 Months': '180'
+      - 'Last Year': '365'
+      - 'All Time': '9999'
     default: '7'
-  - name: show_thumbnail
-    type: boolean
-    label: 'Show Thumbnails'
+  - keyname: show_thumbnail
+    field_type: select
+    name: 'Show Thumbnails'
     description: 'Display article cover images as thumbnails'
-    required: false
-    default: false
+    options:
+      - 'Yes': 'true'
+      - 'No': 'false'
+    default: 'true'
