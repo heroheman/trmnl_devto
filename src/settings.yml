@@ -12,8 +12,7 @@ polling_verb: get
 polling_url: 'https://dev.to/api/articles?{% if tag and tag != "" %}tag={{ tag }}&{% endif %}{% if state == "top" %}top={{ top }}{% else %}state={{ state }}{% endif %}'
 polling_headers: ''
 name: Dev.to Articles
-refresh_interval: 360
-settings:
+custom_fields:
   - keyname: author_bio
     name: About This Plugin
     field_type: author_bio
