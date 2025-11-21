@@ -1,4 +1,4 @@
-# TRMNLP configuration
+# TRMNLP configuration for Dev.to Plugin
 # {{ env.VARIABLE }} interpolation is available here
 ---
 # auto-reload when files change (`watch: false` to disable)
@@ -7,8 +7,21 @@ watch:
   - src
 
 # values of custom fields (defined in src/settings.yml)
-custom_fields: {}
+custom_fields:
+  tag: "javascript"
+  state: "fresh"
+  top: 7
 
-# override variables
+# Time zone IANA identifier to inject into trmnl.user
+# See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+time_zone: Europe/Berlin
+
+# override variables for local development
 variables:
-  trmnl: {}
+  trmnl:
+    user:
+      name: Dev User
+      first_name: Dev
+      last_name: User
+    plugin_settings:
+      instance_name: Dev.to Articles

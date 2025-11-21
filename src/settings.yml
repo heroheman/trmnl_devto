@@ -9,7 +9,32 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
-polling_url: ''
+polling_url: 'https://dev.to/api/articles?tag={{ tag }}&state={{ state }}&top={{ top }}'
 polling_headers: ''
-name: My Plugin
-refresh_interval: 1440
+name: Dev.to Articles
+refresh_interval: 360
+settings:
+  - name: tag
+    type: text
+    label: 'Tag'
+    description: 'Filter articles by tag (e.g., javascript, python)'
+    required: false
+  - name: state
+    type: select
+    label: 'State'
+    description: 'Filter by article state'
+    required: false
+    options:
+      - label: 'All'
+        value: 'all'
+      - label: 'Fresh'
+        value: 'fresh'
+      - label: 'Rising'
+        value: 'rising'
+  - name: top
+    type: number
+    label: 'Top (days)'
+    description: 'Show most popular articles from the last N days (1-365)'
+    required: false
+    min: 1
+    max: 365

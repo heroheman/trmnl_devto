@@ -1,1 +1,34 @@
-full!
+{% assign articles = data | limit: 5 %}
+
+<div class="layout layout--col gap">
+  {% render 'devto_header',
+    title_size: 'title--medium',
+    label_size: 'label--small',
+    gap: 'gap--small',
+    show_articles_text: true,
+    tag: trmnl.plugin_settings.custom_fields_values.tag
+  %}
+  
+  <div class="divider"></div>
+  
+  {% for article in articles %}
+    {% render 'article_item',
+      title: article.title,
+      title_size: 'title--small',
+      title_clamp: '2',
+      description: article.description,
+      description_clamp: '2',
+      show_description: true,
+      author: article.user.name,
+      author_truncate: 25,
+      tags: article.tags,
+      max_tags: 3,
+      reading_time: article.reading_time_minutes,
+      label_size: 'label--small',
+      meta_gap: 'gap--small',
+      show_author: true,
+      show_tags: true,
+      show_reading_time: true
+    %}
+  {% endfor %}
+</div>

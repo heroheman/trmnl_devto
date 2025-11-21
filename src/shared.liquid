@@ -1,1 +1,38 @@
+<!-- Dev.to Plugin Shared Templates -->
 
+{% comment %} === ARTICLE ITEM TEMPLATE === {% endcomment %}
+{% template article_item %}
+  <div class="item">
+    <div class="meta"></div>
+    <div class="content">
+      <span class="title {{ title_size }}" data-clamp="{{ title_clamp }}">{{ title }}</span>
+      {% if show_description and description %}
+        <span class="description" data-clamp="{{ description_clamp }}">{{ description }}</span>
+      {% endif %}
+      <div class="flex {{ meta_gap }}">
+        {% if show_author %}
+          <span class="label {{ label_size }}">{{ author | truncate: author_truncate }}</span>
+        {% endif %}
+        {% if show_tags and tags %}
+          {% assign tags_array = tags | split: ', ' %}
+          {% for tag in tags_array limit: max_tags %}
+            <span class="label {{ label_size }}">#{{ tag }}</span>
+          {% endfor %}
+        {% endif %}
+        {% if show_reading_time %}
+          <span class="label {{ label_size }}">{{ reading_time }} min</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endtemplate %}
+
+{% comment %} === HEADER TEMPLATE === {% endcomment %}
+{% template devto_header %}
+  <div class="flex flex--col {{ gap }}">
+    <span class="title {{ title_size }}">DEV.TO{% if show_articles_text %} ARTICLES{% endif %}</span>
+    {% if tag %}
+      <span class="label {{ label_size }}">#{{ tag }}</span>
+    {% endif %}
+  </div>
+{% endtemplate %}
