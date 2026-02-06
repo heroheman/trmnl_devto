@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.0] - 2026-02-06
+
+### 🚀 Features
+
+- *(settings)* Update plugin description version to v0.1.0
+
+### 🚜 Refactor
+
+- *(settings)* Reorganize custom fields structure
+
+### ⚙️ Miscellaneous Tasks
+
+- Changelog update
+
 ## [0.0.2] - 2025-11-21
 
 ### 🚀 Features
