@@ -62,4 +62,4 @@ custom_fields:
   - 'No': 'false'
   default: 'true'
 name: Dev.to Articles
-refresh_interval: 
+refresh_interval: 1440
